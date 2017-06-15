@@ -1,0 +1,32 @@
+<div ng-init="getBuddies();">
+	<a ui-sref="create()" class="btn btn-primary">Create</a>
+
+	<br/><br/>
+
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default"   ng-repeat="buddy in buddies">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#{{buddy.username}}" target="_self"
+ aria-expanded="false" aria-controls="collapseOne">
+         {{buddy.username}}
+        </a>
+        <a ng-click="edit(buddy.username);" target="_self">
+        	<span class="glyphicon glyphicon-edit pull-right text-info" style="margin-left:5px;" ></span>
+        </a>
+        <a ng-click="deleteBuddy(buddy.username);" target="_self">
+         	<span class="glyphicon glyphicon-trash pull-right text-danger"  ></span>
+        </a>
+      </h4>
+    </div>
+    <div id="{{buddy.username}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        {{buddy.firstName}} {{buddy.lastName}}
+        <p> {{birthday | date: "DD-MM-YYYY"}}</p>
+        <p> {{buddy.bio}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>

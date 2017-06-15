@@ -1,0 +1,52 @@
+<div class="" ng-init="setInits()">
+<div> <button ui-sref="dashboard()" class="btn btn-primary">Dashboard</button></div>
+
+ <div class="alert {{class}}" ng-if="message" role="alert">
+     {{message}}
+ </div>
+    <form novalidate name="create">
+        <div class="form-group" ng-class="{ 'has-error' : submitted && create.email.$invalid }">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" ng-model="buddy.email" name="email" id="email" placeholder="Email" required>
+            <div ng-show="submitted && create.email.$invalid" class="help-block ">
+                <p ng-show=" create.email.$error.required ">Email is required</p>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : submitted && create.firstName.$invalid }">
+            <label for="firstName">firstName</label>
+            <input type="text" class="form-control" ng-model="buddy.firstName" name="firstName" id="fristName" placeholder="fristNameail" required>
+            <div ng-show="submitted && create.firstName.$invalid" class="help-block ">
+                <p ng-show=" create.firstName.$error.required ">FirstName is required</p>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : submitted && create.lastName.$invalid }">
+            <label for="lastName">lastName</label>
+            <input type="text" class="form-control" ng-model="buddy.lastName" name="lastName" id="lastName" placeholder="lastName" required>
+            <div ng-show="submitted && create.lastName.$invalid" class="help-block ">
+                <p ng-show=" create.lastName.$error.required ">Last name is required</p>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : submitted && create.address.$invalid }">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" ng-model="buddy.address" name="address" id="address" placeholder="address1,address2,city,state,Country,Pincode" required>
+            <div ng-show="submitted && create.address.$invalid" class="help-block ">
+                <p ng-show=" create.address.$error.required ">Address is required</p>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : submitted && create.bio.$invalid }">
+            <label for="bio">About</label>
+            <textarea class="form-control" ng-model="buddy.bio" name="bio" rows="3" required></textarea>
+            <div ng-show="submitted && create.bio.$invalid" class="help-block ">
+                <p ng-show=" create.bio.$error.required ">BioData is required</p>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : submitted && create.dob.$invalid }">
+            <label for="dateofbirth">Date of Birth</label>
+            <input type="date" ng-model="buddy.dob" name="dob" class="form-control" name="dateofbirth" required>
+            <div ng-show="submitted && create.dob.$invalid" class="help-block ">
+                <p ng-show=" create.dob.$error.required ">DOB  is required</p>
+            </div>
+        </div>
+        <button class="btn btn-primary" ng-click="update(create.$valid)">Save</button>
+    </form>
+</div>
